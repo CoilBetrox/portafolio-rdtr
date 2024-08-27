@@ -5,7 +5,6 @@ pipeline {
         BUILD_DIR = "${REPO_DIR}/dist"
         NODEJS_HOME = "${tool 'NodeJS 16'}"
         PATH = "${env.NODEJS_HOME}/bin:${env.PATH}"
-        SUDO_PASS = credentials('ubuntu')
     }
     stages {
         stage('Install Dependencies') {
@@ -25,11 +24,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh '''
-                    echo $SUDO_PASS | sudo -S mkdir -p /opt/proyectos/dist
-                    echo $SUDO_PASS | sudo -S cp -r ${BUILD_DIR}/* /opt/proyectos/dist/
-                    echo $SUDO_PASS | sudo -S systemctl restart nginx
-                    '''
+                    sh "sudo mkdir -p /opt/proyectos/dist"
+                    sh "sudo cp -r ${BUILD_DIR}/* /opt/proyectos/dist/"
+                    sh 'sudo systemctl restart nginx'
                 }
             }
         }
