@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        // Define el directorio donde se clonará el repositorio
         REPO_DIR = '/opt/proyectos'
         BUILD_DIR = "${REPO_DIR}/dist"
     }
@@ -9,7 +8,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    // Clonar el repositorio en /opt/proyectos si no existe
                     if (!fileExists(REPO_DIR)) {
                         sh "mkdir -p ${REPO_DIR}"
                         dir(REPO_DIR) {
@@ -40,21 +38,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Copiar los archivos construidos al directorio de Nginx
                     sh "sudo cp -r ${BUILD_DIR}/* /opt/proyectos/dist/"
-                    // Reiniciar Nginx para aplicar cualquier cambio
                     sh 'sudo systemctl restart nginx'
                 }
             }
         }
     }
-    /*
-    post {
-        failure {
-            mail to: 'roberthdanielt@gmail.com',
-                 subject: "Build failed in Jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "Build failed. Check console output for details."
-        }
-    }
-    */
 }
