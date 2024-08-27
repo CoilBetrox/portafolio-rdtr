@@ -3,6 +3,8 @@ pipeline {
     environment {
         REPO_DIR = "${env.WORKSPACE}"
         BUILD_DIR = "${REPO_DIR}/dist"
+        NODEJS_HOME = "${tool 'NodeJS 16'}"
+        PATH = "${env.NODEJS_HOME}/bin:${env.PATH}"
     }
     stages {
         stage('Install Dependencies') {
