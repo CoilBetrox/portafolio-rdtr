@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/CoilBetrox/portafolio-rdtr.git'
+                git credentialsId: 'portafolio-vue-cred', url: 'https://github.com/CoilBetrox/portafolio-rdtr.git'
             }
         }
         stage('Install Dependencies') {
