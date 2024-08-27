@@ -48,6 +48,7 @@ pipeline {
             }
         }
     }
+    /*
     post {
         failure {
             mail to: 'roberthdanielt@gmail.com',
@@ -55,4 +56,5 @@ pipeline {
                  body: "Build failed. Check console output for details."
         }
     }
+    */
 }
