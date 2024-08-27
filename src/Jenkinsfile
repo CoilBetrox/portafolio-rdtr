@@ -1,24 +1,13 @@
 pipeline {
     agent any
     environment {
-        REPO_DIR = '/opt/proyectos'
+        REPO_DIR = "${env.WORKSPACE}"
         BUILD_DIR = "${REPO_DIR}/dist"
     }
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    if (!fileExists(REPO_DIR)) {
-                        sh "mkdir -p ${REPO_DIR}"
-                        dir(REPO_DIR) {
-                            git url: 'https://github.com/CoilBetrox/portafolio-rdtr.git'
-                        }
-                    } else {
-                        dir(REPO_DIR) {
-                            sh 'git pull'
-                        }
-                    }
-                }
+                git url: 'https://github.com/CoilBetrox/portafolio-rdtr.git'
             }
         }
         stage('Install Dependencies') {
@@ -38,6 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
+                    sh "sudo mkdir -p /opt/proyectos/dist"
                     sh "sudo cp -r ${BUILD_DIR}/* /opt/proyectos/dist/"
                     sh 'sudo systemctl restart nginx'
                 }
