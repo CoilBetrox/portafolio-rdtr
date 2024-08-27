@@ -5,11 +5,6 @@ pipeline {
         BUILD_DIR = "${REPO_DIR}/dist"
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git credentialsId: 'portafolio-vue-cred', url: 'https://github.com/CoilBetrox/portafolio-rdtr.git'
-            }
-        }
         stage('Install Dependencies') {
             steps {
                 dir(REPO_DIR) {
