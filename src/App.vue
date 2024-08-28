@@ -51,6 +51,7 @@ nav a.router-link-exact-active {
 
 .main-content {
   flex: 1;
+  background-color: #F7F7F7;
   display: flex;
   flex-direction: column;
 }

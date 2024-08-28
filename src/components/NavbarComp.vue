@@ -3,7 +3,7 @@
         <div class="navbar-brand">
             <router-link to="/" class="logo">
                 <img src="@/assets/logo.png" alt="Logo" />
-                <span class="name-inicio">RoberthTroya</span>
+                <span class="name-inicio">Roberth Troya</span>
             </router-link>
             <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle menu">☰</button>
         </div>
@@ -92,6 +92,7 @@ export default {
     color: #007bff;
     font-weight: 500;
     font-size: 1.3rem;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 .navbar-item:hover {

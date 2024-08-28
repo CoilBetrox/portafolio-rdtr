@@ -33,7 +33,6 @@ export default {
     justify-content: center;
     height: 100vh;
     text-align: center;
-    background-color: #f8f9fa;
 }
 
 .name {
