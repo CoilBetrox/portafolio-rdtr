@@ -5,8 +5,9 @@
                 <img src="@/assets/logo.png" alt="Logo" />
                 <span class="name-inicio">RoberthTroya</span>
             </router-link>
+            <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle menu">☰</button>
         </div>
-        <div class="navbar-menu">
+        <div class="navbar-menu" :class="{ 'is-active': isMenuActive }">
             <router-link to="/" class="navbar-item">{ Home }</router-link>
             <router-link to="/about" class="navbar-item">{ About }</router-link>
             <router-link to="/projects" class="navbar-item">{ Projects }</router-link>
@@ -17,7 +18,17 @@
 
 <script>
 export default {
-    name: 'NavBar'
+    name: 'NavbarComp',
+    data() {
+        return {
+            isMenuActive: false
+        }
+    },
+    methods: {
+        toggleMenu() {
+            this.isMenuActive = !this.isMenuActive
+        }
+    }
 }
 </script>
 
@@ -44,6 +55,7 @@ export default {
 .navbar-brand {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-left: 5%;
 }
 
@@ -61,6 +73,14 @@ export default {
     margin-right: 0.5rem;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .navbar-menu {
     display: flex;
     gap: 1rem;
@@ -76,5 +96,31 @@ export default {
 
 .navbar-item:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 820px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .navbar-menu.is-active {
+    display: flex;
+  }
+
+  .navbar-brand {
+    width: 100%;
+  }
 }
 </style>
