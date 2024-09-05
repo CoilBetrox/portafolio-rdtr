@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="navbar-brand">
             <router-link to="/" class="logo">
-                <img src="@/assets/logo.png" alt="Logo" />
+                <img src="@/assets/logort6.png" alt="Logo" />
                 <span class="name-inicio">Roberth Troya</span>
             </router-link>
             <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle menu">☰</button>
@@ -68,8 +68,8 @@ export default {
 }
 
 .logo img {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     margin-right: 0.5rem;
 }
 
