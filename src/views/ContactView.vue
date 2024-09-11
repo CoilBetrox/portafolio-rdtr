@@ -34,7 +34,6 @@ export default {
     name: 'ContactView',
     setup() {
         const formspreeUrl = process.env.VUE_APP_FORMSPREE_URL
-        console.log(formspreeUrl)
         const form = reactive({
             name: '',
             email: '',
@@ -66,7 +65,6 @@ export default {
                 form.name = ''
                 form.email = ''
                 form.message = ''
-                console.log(result)
                 } else {
                 throw new Error(result.error || 'Something went wrong')
                 }
