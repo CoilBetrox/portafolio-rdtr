@@ -2,7 +2,7 @@
     <div class="main-view">
         <h1 class="name">Roberth Troya</h1>
         <p class="title">COMPUTER SCIENCE ENGINEER, BACKEND</p>
-        <button class="projects-button" @click="goToProjects">Proyectos</button>
+        <button class="generic-button" @click="goToProjects">Projects</button>
     </div>
 </template>
 
@@ -48,7 +48,7 @@ export default {
     margin-bottom: 2rem;
 }
 
-.projects-button {
+.generic-button {
     padding: 0.75rem 2rem;
     font-size: 1rem;
     color: white;
@@ -59,7 +59,7 @@ export default {
     transition: background-color 0.3s ease;
 }
 
-.projects-button:hover {
+.generic-button:hover {
     background-color: #0056b3;
 }
 </style>

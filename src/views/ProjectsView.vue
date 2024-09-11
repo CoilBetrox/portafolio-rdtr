@@ -11,8 +11,9 @@
           </div>
           <div class="content-wraper-details">
             <h3>{{ project.nameProject }}</h3>
-            <p>{{ project.descriptionProject }}</p>
-            <button @click="showDetails(project)">Detalles</button>
+            <p><strong>Descripción:</strong> {{ project.descriptionProject }}</p>
+            <p><strong>Tecnologías:</strong> {{ project.tecnoProject }}</p>
+            <button class="generic-button" @click="showDetails(project)">Detalles</button>
           </div>
         </div>
     </div>
@@ -26,20 +27,23 @@ export default {
     return {
       projects: [
         {
-          nameProject: 'Proyecto 1',
-          descriptionProject: 'Descripcion de proyecto 1',
+          nameProject: 'Plataforma de visualización de datos',
+          descriptionProject: 'Este aplicativo ',
+          tecnoProject: 'PHP 8, Apache, Html, Css, Javascript, PostgreSql',
           imageProject: 'image 1',
           urlProject: 'link 1'
         },
         {
           nameProject: 'Proyecto 2',
           descriptionProject: 'Descripcion de proyecto 2',
+          tecnoProject: '',
           imageProject: 'image 2',
           urlProject: 'link 2'
         },
         {
           nameProject: 'Proyecto 3',
           descriptionProject: 'Descripcion de proyecto 3',
+          tecnoProject: '',
           imageProject: 'image 3',
           urlProject: 'link 3'
         },
@@ -128,6 +132,22 @@ export default {
   flex: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.generic-button {
+    padding: 0.60rem 2rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.generic-button:hover {
+    background-color: #0056b3;
 }
 
 @media (max-width: 768px) {
