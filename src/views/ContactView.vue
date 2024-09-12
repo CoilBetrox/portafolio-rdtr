@@ -33,7 +33,7 @@ import { reactive, ref } from 'vue';
 export default {
     name: 'ContactView',
     setup() {
-        const formspreeUrl = process.env.VUE_APP_FORMSPREE_URL
+        const formspreeUrl = process.env.VUE_APP_FORMSPREE_URL;
         const form = reactive({
             name: '',
             email: '',
