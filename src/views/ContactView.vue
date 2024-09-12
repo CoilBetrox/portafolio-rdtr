@@ -83,13 +83,13 @@ export default {
 
 <style scoped>
 label {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: left;
     margin-bottom: 0.3rem;
 }
 
 input, textarea {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 0.4rem 0.4rem;
     border-radius: 8px;
 }
@@ -213,8 +213,14 @@ input, textarea {
 }
 
 @media (max-width: 768px) {
+
+
     .content-wrapper {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
     }
 }
 </style>
