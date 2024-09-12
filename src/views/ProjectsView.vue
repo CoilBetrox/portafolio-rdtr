@@ -27,12 +27,13 @@ export default {
     return {
       projects: [
         {
-          nameProject: 'Plataforma de visualización de datos',
-          descriptionProject: 'Este aplicativo ',
-          tecnoProject: 'PHP 8, Apache, Html, Css, Javascript, PostgreSql',
+          nameProject: 'Plataforma para un salón de belleza con usuarios y administradores',
+          descriptionProject: 'Este aplicativo integra registro de usuarios con validación de correo, reestablecer contraseña, servicios, registro de citas, resumen de citas, búsqueda de citas, sección administrador base de datos MySql',
+          tecnoProject: 'PHP 8, Apache, Html, Css, Javascript, MySql',
           imageProject: 'image 1',
           urlProject: 'link 1'
         },
+        /*
         {
           nameProject: 'Proyecto 2',
           descriptionProject: 'Descripcion de proyecto 2',
@@ -47,6 +48,7 @@ export default {
           imageProject: 'image 3',
           urlProject: 'link 3'
         },
+        */
       ]
     }
   },
