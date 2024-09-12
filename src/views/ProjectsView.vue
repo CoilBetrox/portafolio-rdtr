@@ -1,8 +1,8 @@
 <template>
   <div class="principal-content">
-    <h1 class="title">PROJECTS</h1>
-    <p class="subtitle">Here you will find my developed projects which includes:</p>
-    <p class="description">overview, tools used and links to the product.</p>
+    <h1 class="title">PROYECTOS</h1>
+    <p class="subtitle">Aquí encontrará los proyectos que he desarrollado, estos incluyen</p>
+    <p class="description">descripción general, herramientas utilizadas y enlaces al producto.</p>
     
     <div class="content-wrapper">
         <div class="project-item" v-for="project in projects" :key="project.nameProject">
@@ -104,6 +104,8 @@ img {
   flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 
 .description-text-wrapper {
@@ -175,12 +177,25 @@ img {
 
 @media (max-width: 768px) {
   img {
-    max-width: 7rem;
-    max-height: 7rem;
+    max-width: 9rem;
+    max-height: 9rem;
+  }
+
+  .content-wraper-image {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    order: 2;
+  }
+
+  .project-item {
+    display: flex;
+    flex-direction: column;
   }
 
   .content-wrapper {
     flex-direction: column;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
 }
 </style>

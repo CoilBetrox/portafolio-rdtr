@@ -1,8 +1,8 @@
 <template>
     <div class="main-view">
         <h1 class="name">Roberth Troya</h1>
-        <p class="title">COMPUTER SCIENCE ENGINEER, BACKEND</p>
-        <button class="generic-button" @click="goToProjects">Projects</button>
+        <p class="title">INGENIERO EN CIENCIAS DE LA COMPUTACIÓN</p>
+        <button class="generic-button" @click="goToProjects">Proyectos</button>
     </div>
 </template>
 

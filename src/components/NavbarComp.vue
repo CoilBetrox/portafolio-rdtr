@@ -8,10 +8,10 @@
             <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle menu">☰</button>
         </div>
         <div class="navbar-menu" :class="{ 'is-active': isMenuActive }">
-            <router-link to="/" class="navbar-item">{ Home }</router-link>
-            <router-link to="/about" class="navbar-item">{ About }</router-link>
-            <router-link to="/projects" class="navbar-item">{ Projects }</router-link>
-            <router-link to="/contact" class="navbar-item">{ Contact }</router-link>
+            <router-link to="/" class="navbar-item" @click="closeMenu">{ Inicio }</router-link>
+            <router-link to="/about" class="navbar-item" @click="closeMenu">{ Info }</router-link>
+            <router-link to="/projects" class="navbar-item" @click="closeMenu">{ Proyectos }</router-link>
+            <router-link to="/contact" class="navbar-item" @click="closeMenu">{ Contacto }</router-link>
         </div>
     </nav>
 </template>
@@ -27,6 +27,10 @@ export default {
     methods: {
         toggleMenu() {
             this.isMenuActive = !this.isMenuActive
+        },
+        closeMenu() {
+            this.isMenuActive = false;
+            window.scrollTo(0, 0);
         }
     }
 }

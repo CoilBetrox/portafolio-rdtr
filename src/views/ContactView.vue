@@ -83,19 +83,18 @@ export default {
 
 <style scoped>
 label {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: left;
     margin-bottom: 0.3rem;
 }
 
 input, textarea {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0.4rem 0.4rem;
     border-radius: 8px;
 }
 
 .principal-content {
-    max-width: 1200px;
 
     margin: 0 auto;
     padding: 2rem;
@@ -122,9 +121,10 @@ input, textarea {
 .content-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     margin-top: 2rem;
-    align-items: center;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    align-items: normal;
 }
 
 .description-text-wrapper {
@@ -194,13 +194,6 @@ input, textarea {
     background-color: #0056b3;
 }
 
-.form-contact {
-    display: flex;
-    flex-direction: column;
-    width: 24rem;
-    gap: 1rem;
-}
-
 .form-group {
     display: flex;
     flex-direction: column;
@@ -214,13 +207,14 @@ input, textarea {
 
 @media (max-width: 768px) {
 
-
     .content-wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
+        margin-top: 2rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        align-items: normal;
     }
+
 }
 </style>

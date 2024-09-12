@@ -1,19 +1,19 @@
 <template>
   <div class="about-view">
-    <h1 class="title">ABOUT ME</h1>
-    <p class="subtitle">I am a backend developer based in Quito, Ecuador.</p>
-    <p class="description">These are my skills, what I do in relation to programming and technology</p>
+    <h1 class="title">SOBRE MÍ</h1>
+    <p class="subtitle">Soy un desarrollador backend con resitencia en Quito, Ecuador</p>
+    <p class="description">Estas son mis habilidades, lo que hago relacionado con la programación y tecnología</p>
     
     <div class="content-wrapper">
       <div class="about-text">
-        <p>Computer Science Engineer, developing the graduation project.</p>
-        <p>I combine a solid theoretical foundation with a practical and holistic approach to solving technological problems. I stand out for my ability to:</p>
+        <p>Ingeniero en Ciencias de la Computación, desarrollando mi proyecto de graduación.</p>
+        <p>Combino una sólida base teórica con un enfoque práctico y holístico para la solución de problemas tecnológicos. Destaco por mi capacidad para:</p>
         <ol>
-          <li>Address challenges in a comprehensive manner, identifying and solving root causes.</li>
-          <li>Collaborate effectively in multidisciplinary teams, maintaining focus under pressure.</li>
-          <li>Communicate ideas clearly and concisely, facilitating understanding and cooperation.</li>
+          <li>Abordar retos de manera integral, identificando y solucionando las causas raíz.</li>
+          <li>Colaborar eficazmente en equipos multidisciplinarios, manteniendo el foco bajo presión.</li>
+          <li>Comunicar ideas de forma clara y concisa, facilitando el entendimiento y la cooperación.</li>
         </ol>
-        <p>My passion for technology and my technical and interpersonal skills, position me as a versatile and results-oriented professional in the field of computing.</p>
+        <p>Mi pasión por la tecnología y mis habilidades técnicas e interpersonales, me posicionan como un profesional versátil y orientado a resultados en el ámbito de la informática.</p>
       </div>
       
       <div class="skills-container">
