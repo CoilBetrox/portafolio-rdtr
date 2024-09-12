@@ -34,7 +34,7 @@ export default {
       projects: [
         {
           nameProject: 'Portafolio Personal',
-          descriptionProject: 'Aplicativo web de visualización de habilidades, proyectos desarrollados y captura de infromación de contactos. El proyecto integra técnologías escalables muy demandadas. Mantiene actualización constante y despliegue automático con el desarrollo de nuevos proyectos',
+          descriptionProject: 'Aplicativo web de visualización de habilidades, proyectos desarrollados y captura de infromación de contactos. El proyecto integra tecnologías escalables muy demandadas. Mantiene actualización constante y despliegue automático mediante Jenkins, GitHub y Oracle Cloud',
           tecnoProject: 'Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, Draw.io, Dominio Hostinger y Formspree',
           imageProject: rdtroyaImage,
           urlProject: 'https://rdtroyaram.site/',
