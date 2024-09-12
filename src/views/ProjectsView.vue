@@ -11,9 +11,12 @@
           </div>
           <div class="content-wraper-details">
             <h3>{{ project.nameProject }}</h3>
-            <p><strong>Descripción:</strong> {{ project.descriptionProject }}</p>
+            <div class="container-description">
+              <p><strong>Descripción:</strong> {{ project.descriptionProject }}</p>
+            </div>
             <p><strong>Tecnologías:</strong> {{ project.tecnoProject }}</p>
-            <button class="generic-button" @click="showDetails(project)">Detalles</button>
+            <p><strong>Estado:</strong> {{ project.statusProject }}</p>
+            <button class="generic-button" @click="showDetails(project)">Link del proyecto</button>
           </div>
         </div>
     </div>
@@ -21,46 +24,57 @@
 </template>
 
 <script>
+import rdtroyaImage from '@/assets/rdtroyaram.png';
+import appSalonImage from '@/assets/appsalon.png';
+
 export default {
   name: 'ProjectsView',
   data() {
     return {
       projects: [
         {
+          nameProject: 'Portafolio Personal',
+          descriptionProject: 'Aplicativo web de visualización de habilidades, proyectos desarrollados y captura de infromación de contactos. El proyecto integra técnologías escalables muy demandadas. Mantiene actualización constante y despliegue automático con el desarrollo de nuevos proyectos',
+          tecnoProject: 'Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, Draw.io, Dominio Hostinger y Formspree',
+          imageProject: rdtroyaImage,
+          urlProject: 'https://rdtroyaram.site/',
+          statusProject: 'Completo'
+        },
+        {
           nameProject: 'Plataforma para un salón de belleza con usuarios y administradores',
-          descriptionProject: 'Este aplicativo integra registro de usuarios con validación de correo, reestablecer contraseña, servicios, registro de citas, resumen de citas, búsqueda de citas, sección administrador base de datos MySql',
+          descriptionProject: 'Aplicativo web que integra registro de usuarios con validación de correo, reestablecer contraseña, registro, resumen, búsqueda de citas y sección administrador. Todo el sistema se encuentra integrado a una base de datos MySql',
           tecnoProject: 'PHP 8, Apache, Html, Css, Javascript, MySql',
-          imageProject: 'image 1',
-          urlProject: 'link 1'
+          imageProject: appSalonImage,
+          urlProject: 'https://google.com',
+          statusProject: 'Desarrollo'
         },
         /*
-        {
-          nameProject: 'Proyecto 2',
-          descriptionProject: 'Descripcion de proyecto 2',
-          tecnoProject: '',
-          imageProject: 'image 2',
-          urlProject: 'link 2'
-        },
         {
           nameProject: 'Proyecto 3',
           descriptionProject: 'Descripcion de proyecto 3',
           tecnoProject: '',
           imageProject: 'image 3',
-          urlProject: 'link 3'
+          urlProject: 'link 3',
+          statusProject: 'Desarrollo'
         },
         */
       ]
     }
   },
   methods: {
-    showDetails() {
-
+    showDetails(project) {
+      window.open(project.urlProject, '_blank');
     }
   }
 }
 </script>
 
 <style scoped>
+img {
+  max-width: 14rem;
+  max-height: 14rem;
+}
+
 .principal-content {
   max-width: 1200px;
   
@@ -128,6 +142,9 @@ export default {
 
 .content-wraper-image {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-wraper-details {
@@ -152,7 +169,16 @@ export default {
     background-color: #0056b3;
 }
 
+.container-description {
+  max-width: 35rem;
+}
+
 @media (max-width: 768px) {
+  img {
+    max-width: 7rem;
+    max-height: 7rem;
+  }
+
   .content-wrapper {
     flex-direction: column;
   }
