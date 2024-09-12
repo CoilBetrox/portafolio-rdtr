@@ -1,9 +1,10 @@
 <template>
     <div class="not-found-comp">
         <h1 class="title">404</h1>
-        <h1 class="title">Page not found</h1>
-        <p class="subtitle">Sorry, the page you are looking for does not exist.</p>
-        <p class="subtitle">It must have been lost between the backend and the frontend.</p>
+        <img src="../assets/sadcat.png" alt="catsad">
+        <h1 class="title">Página no encontrada</h1>
+        <p class="subtitle">Lo siento, la página que está buscando no existe.</p>
+        <p class="subtitle">Debe haberse perdido entre en backend y el frontend.</p>
         <router-link to="/" class="description">
             Volver al inicio
         </router-link>
@@ -11,12 +12,20 @@
 </template>
 
 <script>
+
 export default {
     name: 'NotFoundPage'
 }
 </script>
 
 <style scoped>
+img {
+    max-width: 10rem;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
 .not-found-comp {
     max-width: 1200px;
     margin: 0 auto;
