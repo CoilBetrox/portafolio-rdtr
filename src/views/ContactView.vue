@@ -1,22 +1,22 @@
 <template>
     <div class="principal-content">
-        <h1 class="title">CONTACT</h1>
-        <p class="subtitle">Please feel free to contact me by sending the following form.</p>
-        <p class="description">I will receive it and get back to you as soon as possible.</p>
+        <h1 class="title">CONTACTO</h1>
+        <p class="subtitle">No dude en ponerte en contacto conmigo enviando el siguiente formulario.</p>
+        <p class="description">Lo recibiré y me pondré en contacto lo antes posible.</p>
 
         <div class="content-wrapper">
             <form class="form-contact" @submit.prevent="submitForm" :action="formspreeUrl" method="POST">
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input id="name" v-model="form.name" type="text" required placeholder="Enter Your Name">
+                    <label for="name">Nombre:</label>
+                    <input id="name" v-model="form.name" type="text" required placeholder="Escriba su nombre">
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input id="email" v-model="form.email" type="email" required placeholder="Enter Your Email">
+                    <input id="email" v-model="form.email" type="email" required placeholder="Escriba su correo">
                 </div>
                 <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" v-model="form.message" required placeholder="Enter Your Message"></textarea>
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" v-model="form.message" required placeholder="Escriba su mensaje"></textarea>
                 </div>
                 <div class="content-button">
                     <button class="generic-button" type="submit" :disabled="isSubmitting">{{ isSubmitting ? 'Sending...' : 'Send' }}</button>
@@ -92,6 +92,7 @@ input, textarea {
     font-size: 1rem;
     padding: 0.4rem 0.4rem;
     border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 .principal-content {
@@ -176,7 +177,7 @@ input, textarea {
 .content-button {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .generic-button {
