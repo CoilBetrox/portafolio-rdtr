@@ -26,6 +26,7 @@
 <script>
 import rdtroyaImage from '@/assets/rdtroyaram.png';
 import appSalonImage from '@/assets/appsalon.png';
+import celecepImage from '@/assets/celecep.png';
 
 export default {
   name: 'ProjectsView',
@@ -33,17 +34,25 @@ export default {
     return {
       projects: [
         {
+          nameProject: 'Plataforma de visualización de energía producida en tiempo real para CELEC EP Termopichincha',
+          descriptionProject: 'Aplicativo web desarrollado para CELEC EP Termopichincha. Liderado por: Ing. Andrés Oviedo. Equipo de desarrollo: Ing. Alexander Quintana e Ing. Roberth Troya. El aplicativo tiene la capacidad de capturar y normalizar en tiempo real la energía activa y pasiva producida por las plantas de generación y las Unidades de cada planta para mostrarla en tiempo real.',
+          tecnoProject: 'PHP 8, Apache, HTML, CSS, JavaScript, AJAX, AmCharts 5, PostgreSQL, Windows server 2019',
+          imageProject: celecepImage,
+          urlProject: 'https://potencia.celec.gob.ec/pages/index.php',
+          statusProject: 'Completo'
+        },
+        {
           nameProject: 'Portafolio Personal',
-          descriptionProject: 'Aplicativo web de visualización de habilidades, proyectos desarrollados y captura de infromación de contactos. El proyecto integra tecnologías escalables muy demandadas. Mantiene actualización constante y despliegue automático mediante Jenkins, GitHub y Oracle Cloud',
-          tecnoProject: 'Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, Draw.io, Dominio Hostinger y Formspree',
+          descriptionProject: 'Aplicativo web de visualización de habilidades, proyectos desarrollados y captura de información de contactos. El proyecto integra tecnologías escalables muy demandadas. Mantiene actualización constante y despliegue automático mediante Jenkins, GitHub y Oracle Cloud',
+          tecnoProject: 'Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, Draw.io, Dominio Hostinger, Formspree',
           imageProject: rdtroyaImage,
           urlProject: 'https://rdtroyaram.site/',
           statusProject: 'Completo'
         },
         {
           nameProject: 'Plataforma para un salón de belleza con usuarios y administradores',
-          descriptionProject: 'Aplicativo web que integra registro de usuarios con validación de correo, reestablecer contraseña, registro, resumen, búsqueda de citas y sección administrador. Todo el sistema se encuentra integrado a una base de datos MySql',
-          tecnoProject: 'PHP 8, Apache, Html, Css, Javascript, MySql',
+          descriptionProject: 'Aplicativo web que integra registro de usuarios con validación de correo, restablecer contraseña, registro, resumen, búsqueda de citas y sección administrador. Todo el sistema se encuentra integrado a una base de datos MySql',
+          tecnoProject: 'PHP 8, Apache, HTML, CSS, JavaScript, MySQL',
           imageProject: appSalonImage,
           urlProject: 'https://google.com',
           statusProject: 'Desarrollo'
@@ -71,8 +80,8 @@ export default {
 
 <style scoped>
 img {
-  max-width: 14rem;
-  max-height: 14rem;
+  max-width: 16rem;
+  max-height: 16rem;
 }
 
 .principal-content {

@@ -1,7 +1,7 @@
 <template>
   <div class="about-view">
     <h1 class="title">SOBRE MÍ</h1>
-    <p class="subtitle">Soy un desarrollador backend con resitencia en Quito, Ecuador</p>
+    <p class="subtitle">Soy un desarrollador backend con residencia en Quito, Ecuador</p>
     <p class="description">Estas son mis habilidades, lo que hago relacionado con la programación y tecnología</p>
     
     <div class="content-wrapper">
@@ -13,7 +13,7 @@
           <li>Colaborar eficazmente en equipos multidisciplinarios, manteniendo el foco bajo presión.</li>
           <li>Comunicar ideas de forma clara y concisa, facilitando el entendimiento y la cooperación.</li>
         </ol>
-        <p>Mi pasión por la tecnología y mis habilidades técnicas e interpersonales, me posicionan como un profesional versátil y orientado a resultados en el ámbito de la informática.</p>
+        <p>Mi pasión por la tecnología y mis habilidades técnicas e interpersonales, me posicionan como un profesional versátil orientado a resultados en el ámbito de la informática.</p>
       </div>
       
       <div class="skills-container">
