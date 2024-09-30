@@ -55,7 +55,7 @@ export default {
           tecnoProject: 'PHP 8, Apache, HTML, CSS, JavaScript, MySQL',
           imageProject: appSalonImage,
           urlProject: 'https://google.com',
-          statusProject: 'Desarrollo'
+          statusProject: 'Update'
         },
         /*
         {
