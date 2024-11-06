@@ -27,12 +27,21 @@
 import rdtroyaImage from '@/assets/rdtroyaram.png';
 import appSalonImage from '@/assets/appsalon.png';
 import celecepImage from '@/assets/celecep.png';
+import etalentImage from '@/assets/etalent.png';
 
 export default {
   name: 'ProjectsView',
   data() {
     return {
       projects: [
+        {
+          nameProject: 'Sistema interno de seguimiento de personal, retroalimentación y gestión de capacitación para ETAFASHION | RM ',
+          descriptionProject: 'Aplicativo web para el seguimiento de personal, desarrollada en dos módulos, (frontend-Vue.js) y (backend-SpringBoot). La plataforma incluye secciones dedicadas para Administradores y Clientes internos, ofreciendo funcionalidades específicas para cada perfil de usuario. La integración de JWT (JSON Web Tokens) añade una capa adicional de seguridad, asegurando un acceso controlado a los datos sensibles. El despliegue de la aplicación se realizó en un servidor en la nube de Oracle, garantizando accesibilidad y rendimiento óptimo. Por motivos propios el endpoint no se encuentra disponible al público y cualquier consula acerca de los repositorios backend y frontend hacerlos a mi correo: roberthdanielt@gmail.com',
+          tecnoProject: 'Spring Boot 3.3.5, Java 17, Gradle 8.7, JWT, Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, PostgreSQL',
+          imageProject: etalentImage,
+          urlProject: 'https://google.com',
+          statusProject: 'Completo'
+        },
         {
           nameProject: 'Plataforma de visualización de energía producida en tiempo real para CELEC EP Termopichincha',
           descriptionProject: 'Aplicativo web desarrollado para CELEC EP Termopichincha. Liderado por: Ing. Andrés Oviedo. Equipo de desarrollo: Ing. Alexander Quintana e Ing. Roberth Troya. El aplicativo tiene la capacidad de capturar y normalizar en tiempo real la energía activa y pasiva producida por las plantas de generación y las Unidades de cada planta para mostrarla en tiempo real.',
