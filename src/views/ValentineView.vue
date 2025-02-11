@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { ref, onMounted  } from 'vue'
+import { ref } from 'vue'
 import inicial from '@/assets/valentine/inicial.gif'
 import catscaric from '@/assets/valentine/catscaric.gif'
 import catsinbox from '@/assets/valentine/catsinbox.gif'
@@ -27,21 +27,15 @@ export default {
         const gifSrc = ref(inicial);
         const noButtonText = ref("No");
         let noClickCount = 0;
+        let hasStartedAudio = false;
 
         const yesButtonSize = ref(1.2);
         const noButtonSize = ref(1.2);
 
-        let audio;
+        const backgroundAudio = new Audio(belindangel);
+        backgroundAudio.loop = true;
+        backgroundAudio.volume = 0.2;
 
-        onMounted(() => {
-            // Crear y reproducir el audio automáticamente
-            audio = new Audio(belindangel); // Cambia la URL por tu sonido
-            audio.volume = 0.1; // Ajusta el volumen
-            audio.play().catch(() => {
-                console.log("El navegador bloqueó la reproducción automática. Se activará al hacer clic.");
-            });
-        });
-        
         const actionForYes = () => {
             message.value = "¡Sabía que dirías que sí!";
             gifSrc.value = catslover; // Cambiar a un nuevo GIF
@@ -61,12 +55,16 @@ export default {
                 noButtonText.value = "Una minina no diría que no";
             }
 
-            //gifSrc.value += "?t=" + new Date().getTime();
+            gifSrc.value += "?t=" + new Date().getTime();
             yesButtonSize.value += 0.3;
             noButtonSize.value -= 0.2;
 
-            audio.src = belindangel; // Cambia el sonido
-            audio.play();
+            if (!hasStartedAudio) {
+                backgroundAudio.play().catch(() => {
+                    console.log("El navegador bloqueó la reproducción automática. Se activará cuando el usuario interactúe.");
+                });
+                hasStartedAudio = true; // Evita que se vuelva a iniciar el audio
+            }
         };
 
         return {
