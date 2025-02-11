@@ -1,22 +1,32 @@
 <template>
   <div class="app-container">
-    <NavbarComp />
+    <NavbarComp v-if="!hideLayout"/>
     <main class="main-content">
       <router-view></router-view>
     </main>
-    <FooterComp />
+    <FooterComp v-if="!hideLayout"/>
   </div>
 </template>
 
 <script>
 import NavbarComp from '@/components/NavbarComp.vue'
 import FooterComp from '@/components/FooterComp.vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'App',
   components: {
     NavbarComp,
     FooterComp
+  },
+  setup() {
+    const route = useRoute()
+    const hideLayout = computed(() => route.name === 'Valentine')
+
+    return {
+      hideLayout
+    }
   }
 }
 </script>
