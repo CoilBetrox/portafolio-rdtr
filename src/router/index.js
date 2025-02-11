@@ -4,6 +4,7 @@ import AboutView from '@/views/AboutView.vue'
 import ProjectsView from '@/views/ProjectsView.vue'
 import ContactView from '@/views/ContactView.vue'
 import NotFoundPageComp from '@/components/NotFoundPageComp.vue'
+import ValentineView from '@/views/ValentineView.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: ContactView
+  },
+  {
+    path: '/valentine',
+    name: 'Valentine',
+    component: ValentineView
   },
   { 
     path: '/:pathMatch(.*)*', 
