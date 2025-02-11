@@ -65,7 +65,7 @@ export default {
             yesButtonSize.value += 0.3;
             noButtonSize.value -= 0.2;
 
-            audio.src = ""; // Cambia el sonido
+            audio.src = belindangel; // Cambia el sonido
             audio.play();
         };
 
