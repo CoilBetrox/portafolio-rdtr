@@ -11,12 +11,13 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onMounted  } from 'vue'
 import inicial from '@/assets/valentine/inicial.gif'
 import catscaric from '@/assets/valentine/catscaric.gif'
 import catsinbox from '@/assets/valentine/catsinbox.gif'
 import catslover from '@/assets/valentine/catslover.gif'
 import twocats from '@/assets/valentine/twocats.gif'
+import belindangel from '@/assets/valentine/belindangel.mp3'
 
 
 export default {
@@ -29,6 +30,17 @@ export default {
 
         const yesButtonSize = ref(1.2);
         const noButtonSize = ref(1.2);
+
+        let audio;
+
+        onMounted(() => {
+            // Crear y reproducir el audio automáticamente
+            audio = new Audio(belindangel); // Cambia la URL por tu sonido
+            audio.volume = 0.1; // Ajusta el volumen
+            audio.play().catch(() => {
+                console.log("El navegador bloqueó la reproducción automática. Se activará al hacer clic.");
+            });
+        });
         
         const actionForYes = () => {
             message.value = "¡Sabía que dirías que sí!";
@@ -52,6 +64,9 @@ export default {
             //gifSrc.value += "?t=" + new Date().getTime();
             yesButtonSize.value += 0.3;
             noButtonSize.value -= 0.2;
+
+            audio.src = ""; // Cambia el sonido
+            audio.play();
         };
 
         return {
