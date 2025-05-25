@@ -23,7 +23,7 @@ import belindangel from '@/assets/valentine/belindangel.mp3'
 export default {
     name: 'ValentineView',
     setup() {
-        const message = ref("¿Quieres ser mi Valentín?");
+        const message = ref("¿Quieres ser mi Valentin?");
         const gifSrc = ref(inicial);
         const noButtonText = ref("No");
         let noClickCount = 0;
