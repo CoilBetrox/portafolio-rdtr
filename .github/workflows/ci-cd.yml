@@ -7,7 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  test-and-build:
+  # Este job se ejecuta en develop y en PRs a main
+  quality-check:
     runs-on: ubuntu-latest
     
     strategy:
@@ -30,38 +31,38 @@ jobs:
     - name: Run linting
       run: npm run lint
 
+  # Este job solo se ejecuta al hacer push a main (después de merge)
+  deploy-prod:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
     - name: Build application
       run: npm run build
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: vue-build
-        path: dist/
-        retention-days: 1
-
-  deploy-production:
-    runs-on: ubuntu-latest
-    needs: test-and-build
-    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
-    
-    steps:
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: vue-build
-
-    - name: Deploy to production
+    - name: Deploy to Production
       uses: appleboy/scp-action@v0.1.3
       with:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SERVER_SSH_KEY }}
-        source: "."
+        source: "dist/"
         target: "/var/www/vue-app-prod"
         overwrite: true
 
-    - name: Set permissions and reload Nginx
+    - name: Finalize deployment
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.SERVER_HOST }}
@@ -70,4 +71,4 @@ jobs:
         script: |
           sudo chown -R www-data:www-data /var/www/vue-app-prod
           sudo systemctl reload nginx
-          echo "Production deployment completed successfully!"
+          echo "✅ Production deployment completed!"
