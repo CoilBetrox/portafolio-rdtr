@@ -1,42 +1,47 @@
 <template>
-  <div class="about-view">
-    <h1 class="title">SOBRE MÍ</h1>
-    <p class="subtitle">Soy un desarrollador backend con residencia en Quito, Ecuador</p>
-    <p class="description">Estas son mis habilidades, lo que hago relacionado con la programación y tecnología</p>
+  <div class="about-view container">
+    <PageHeader 
+      title="SOBRE MÍ"
+      subtitle="Soy un desarrollador backend con residencia en Quito, Ecuador"
+      description="Estas son mis habilidades, lo que hago relacionado con la programación y tecnología"
+    />
     
-    <div class="content-wrapper">
-      <div class="about-text">
-        <p>Ingeniero en Ciencias de la Computación, desarrollando mi proyecto de graduación.</p>
-        <p>Combino una sólida base teórica con un enfoque práctico y holístico para la solución de problemas tecnológicos. Destaco por mi capacidad para:</p>
-        <ol>
-          <li>Abordar retos de manera integral, identificando y solucionando las causas raíz.</li>
-          <li>Colaborar eficazmente en equipos multidisciplinarios, manteniendo el foco bajo presión.</li>
-          <li>Comunicar ideas de forma clara y concisa, facilitando el entendimiento y la cooperación.</li>
-        </ol>
-        <p>Mi pasión por la tecnología y mis habilidades técnicas e interpersonales, me posicionan como un profesional versátil orientado a resultados en el ámbito de la informática.</p>
+    <div class="about-content">
+      <div class="about-column">
+        <AboutDescription />
       </div>
-      
-      <div class="skills-container">
-        <div class="skill-tag" v-for="skill in skills" :key="skill">{{ skill }}</div>
+      <div class="about-column">
+        <SkillsList :skills="skills" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import PageHeader from '@/components/common/PageHeader.vue'
+import AboutDescription from '@/components/about/AboutDescription.vue'
+import SkillsList from '@/components/about/SkillsList.vue'
+import { ref } from 'vue'
+
 export default {
   name: 'AboutView',
-  data() {
+  components: {
+    PageHeader,
+    AboutDescription,
+    SkillsList
+  },
+  setup() {
+    const skills = ref([
+      'POO', 'Java', 'Spring Boot', 'Gradle - Maven', 'JWT',
+      'OAuth 2.0', 'Microservices', 'Jenkins', 'Docker',
+      'PHP', 'Python', 'Github', 'Vue.js', 'HTML', 
+      'CSS', 'JavaScript', 'PostgreSQL', 'SQLServer', 
+      'MongoDB', 'GCP - SQL', 'Windows Server 2019', 
+      'Ubuntu 22.04', 'Microsoft Office', 'Canva', 'Power BI'
+    ])
+
     return {
-      skills: [
-        'POO', 'Java', 'Spring Boot', 'Gradle - Maven', 'JWT',
-        'OAuth 2.0', 'Microservices', 'Jenkins', 'Docker',
-        'PHP', 'Python', 'Github',
-        'Vue.js', 'HTML', 'CSS', 'JavaScript',
-        'PostgreSQL', 'SQLServer', 'MongoDB', 'GCP - SQL',
-        'Windows Server 2019', 'Ubuntu 22.04',
-        'Microsoft Office', 'Canva', 'Power BI'
-      ]
+      skills
     }
   }
 }
@@ -44,69 +49,31 @@ export default {
 
 <style scoped>
 .about-view {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
-  margin-top: 60px;
+  padding: var(--spacing-xl) 0;
+  min-height: calc(100vh - 80px);
 }
 
-.title {
-  font-size: 2.5rem;
-  color: #4A4A4A;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.subtitle, .description {
-  font-size: 1.3rem;
-  text-align: center;
-  color: #4A4A4A;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.content-wrapper {
+.about-content {
   display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+  align-items: stretch; /* Hace que ambas columnas tengan la misma altura */
 }
 
-.about-text {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.about-text p, .about-text ol {
-  margin-bottom: 1rem;
-}
-
-.skills-container {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 1rem;
+.about-column {
+  flex: 1; /* Cada columna ocupa la mitad del espacio */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  align-content: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.skill-tag {
-  background-color: #f0f0f0;
-  color: #333;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {
-  .content-wrapper {
+  .about-content {
     flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  
+  .about-view {
+    padding: var(--spacing-lg) 0;
   }
 }
 </style>
