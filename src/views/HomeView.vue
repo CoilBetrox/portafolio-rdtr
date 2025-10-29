@@ -10,7 +10,7 @@
 import { useRouter } from 'vue-router'
 
 export default {
-    name: 'MainView',
+    name: 'HomeView',
     setup() {
         const router = useRouter()
 
@@ -31,7 +31,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
     text-align: center;
 }
 

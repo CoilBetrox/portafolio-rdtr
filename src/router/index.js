@@ -1,41 +1,47 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainView from '@/views/MainView.vue'
-import AboutView from '@/views/AboutView.vue'
-import ProjectsView from '@/views/ProjectsView.vue'
-import ContactView from '@/views/ContactView.vue'
-import NotFoundPageComp from '@/components/NotFoundPageComp.vue'
-import ValentineView from '@/views/ValentineView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: MainView
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: AboutView
-  },
-  {
-    path: '/projects',
-    name: 'Projects',
-    component: ProjectsView
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: ContactView
+    component: () => import('@/components/layout/AppLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Home',
+        component: () => import('@/views/HomeView.vue')
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: () => import('@/views/AboutView.vue')
+      },
+      {
+        path: '/projects',
+        name: 'Projects',
+        component: () => import('@/views/ProjectsView.vue')
+      },
+      {
+        path: '/contact',
+        name: 'Contact',
+        component: () => import('@/views/ContactView.vue')
+      }
+    ]
   },
   {
     path: '/valentine',
     name: 'Valentine',
-    component: ValentineView
+    component: () => import('@/components/layout/AppLayoutNoNav.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/ValentineView.vue')
+      }
+    ]
   },
   { 
     path: '/:pathMatch(.*)*', 
     name: 'NotFound', 
-    component: NotFoundPageComp 
+    component: () => import('@/views/NotFoundView.vue')
   }
 ]
 

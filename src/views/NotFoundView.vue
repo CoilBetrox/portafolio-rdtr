@@ -1,7 +1,7 @@
 <template>
     <div class="not-found-comp">
         <h1 class="title">404</h1>
-        <img src="../assets/sadcat.png" alt="catsad">
+        <img src="@/assets/images/sadcat.png" alt="catsad">
         <h1 class="title">Página no encontrada</h1>
         <p class="subtitle">Lo siento, la página que está buscando no existe.</p>
         <p class="subtitle">Debe haberse perdido entre en backend y el frontend.</p>
@@ -12,9 +12,8 @@
 </template>
 
 <script>
-
 export default {
-    name: 'NotFoundPage'
+    name: 'NotFoundView'
 }
 </script>
 

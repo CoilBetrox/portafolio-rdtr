@@ -5,18 +5,24 @@
     <p class="description">descripción general, herramientas utilizadas y enlaces al producto.</p>
     
     <div class="content-wrapper">
-        <div class="project-item" v-for="project in projects" :key="project.nameProject">
-          <div class="content-wraper-image">
-            <img :src="project.imageProject" alt="Imagen del proyecto">
+        <div class="project-item" v-for="project in projects" :key="project.id">
+          <div class="project-left">
+            <div class="content-wraper-image">
+              <img :src="project.image" :alt="'Imagen de ' + project.name">
+            </div>
+            <button class="generic-button" @click="showDetails(project)">Link del proyecto</button>
           </div>
           <div class="content-wraper-details">
-            <h3>{{ project.nameProject }}</h3>
+            <h3>{{ project.name }}</h3>
             <div class="container-description">
-              <p><strong>Descripción:</strong> {{ project.descriptionProject }}</p>
+              <p><strong>Descripción:</strong> {{ project.description }}</p>
             </div>
-            <p><strong>Tecnologías:</strong> {{ project.tecnoProject }}</p>
-            <p><strong>Estado:</strong> {{ project.statusProject }}</p>
-            <button class="generic-button" @click="showDetails(project)">Link del proyecto</button>
+            <p><strong>Tecnologías:</strong> {{ project.technologies }}</p>
+            <p><strong>Estado:</strong> 
+              <span :class="['status-badge', `status-${project.status.toLowerCase()}`]">
+                {{ getStatusText(project.status) }}
+              </span>
+            </p>
           </div>
         </div>
     </div>
@@ -24,10 +30,10 @@
 </template>
 
 <script>
-import rdtroyaImage from '@/assets/rdtroyaram.png';
-import appSalonImage from '@/assets/appsalon.png';
-import celecepImage from '@/assets/celecep.png';
-import etalentImage from '@/assets/etalent.png';
+import rdtroyaImage from '@/assets/images/rdtroyaram.png'
+import appSalonImage from '@/assets/images/appsalon.png'
+import celecepImage from '@/assets/images/celecep.png'
+import etalentImage from '@/assets/images/etalent.png'
 
 export default {
   name: 'ProjectsView',
@@ -35,67 +41,63 @@ export default {
     return {
       projects: [
         {
-          nameProject: 'Sistema interno de seguimiento de personal, retroalimentación y gestión de capacitación para ETAFASHION | RM ',
-          descriptionProject: 'Aplicativo web para el seguimiento de personal, desarrollada en dos módulos, (frontend-Vue.js) y (backend-SpringBoot). La plataforma incluye secciones dedicadas para Administradores y Clientes internos, ofreciendo funcionalidades específicas para cada perfil de usuario. La integración de JWT (JSON Web Tokens) añade una capa adicional de seguridad, asegurando un acceso controlado a los datos sensibles. El despliegue de la aplicación se realizó en un servidor en la nube de Oracle, garantizando accesibilidad y rendimiento óptimo. Por motivos propios el endpoint no se encuentra disponible al público y cualquier consula acerca de los repositorios backend y frontend hacerlos a mi correo: roberthdanielt@gmail.com',
-          tecnoProject: 'Spring Boot 3.3.5, Java 17, Gradle 8.7, JWT, Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, PostgreSQL',
-          imageProject: etalentImage,
-          urlProject: 'https://google.com',
-          statusProject: 'Completo'
+          id: 1,
+          name: 'Sistema interno de seguimiento de personal, retroalimentación y gestión de capacitación para ETAFASHION | RM',
+          description: 'Aplicativo web para el seguimiento de personal, desarrollada en dos módulos, (frontend-Vue.js) y (backend-SpringBoot). La plataforma incluye secciones dedicadas para Administradores y Clientes internos, ofreciendo funcionalidades específicas para cada perfil de usuario. La integración de JWT (JSON Web Tokens) añade una capa adicional de seguridad, asegurando un acceso controlado a los datos sensibles. El despliegue de la aplicación se realizó en un servidor en la nube de Oracle, garantizando accesibilidad y rendimiento óptimo. Por motivos propios el endpoint no se encuentra disponible al público y cualquier consula acerca de los repositorios backend y frontend hacerlos a mi correo: roberthdanielt@gmail.com',
+          technologies: 'Spring Boot 3.3.5, Java 17, Gradle 8.7, JWT, Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, PostgreSQL',
+          image: etalentImage,
+          url: 'https://google.com',
+          status: 'Completo'
         },
         {
-          nameProject: 'Plataforma de visualización de energía producida en tiempo real para CELEC EP Termopichincha',
-          descriptionProject: 'Aplicativo web desarrollado para CELEC EP Termopichincha. Liderado por: Ing. Andrés Oviedo. Equipo de desarrollo: Ing. Alexander Quintana e Ing. Roberth Troya. El aplicativo tiene la capacidad de capturar y normalizar en tiempo real la energía activa y pasiva producida por las plantas de generación y las Unidades de cada planta para mostrarla en tiempo real.',
-          tecnoProject: 'PHP 8, Apache, HTML, CSS, JavaScript, AJAX, AmCharts 5, PostgreSQL, Windows server 2019',
-          imageProject: celecepImage,
-          urlProject: 'https://potencia.celec.gob.ec/pages/index.php',
-          statusProject: 'Completo'
+          id: 2,
+          name: 'Plataforma de visualización de energía producida en tiempo real para CELEC EP Termopichincha',
+          description: 'Aplicativo web desarrollado para CELEC EP Termopichincha. Liderado por: Ing. Andrés Oviedo. Equipo de desarrollo: Ing. Alexander Quintana e Ing. Roberth Troya. El aplicativo tiene la capacidad de capturar y normalizar en tiempo real la energía activa y pasiva producida por las plantas de generación y las Unidades de cada planta para mostrarla en tiempo real.',
+          technologies: 'PHP 8, Apache, HTML, CSS, JavaScript, AJAX, AmCharts 5, PostgreSQL, Windows server 2019',
+          image: celecepImage,
+          url: 'https://potencia.celec.gob.ec/pages/index.php',
+          status: 'Completo'
         },
         {
-          nameProject: 'Portafolio Personal',
-          descriptionProject: 'Aplicativo web de visualización de habilidades, proyectos desarrollados y captura de información de contactos. El proyecto integra tecnologías escalables muy demandadas. Mantiene actualización constante y despliegue automático mediante Jenkins, GitHub y Oracle Cloud',
-          tecnoProject: 'Vue.js, GitHub, Jenkins, Oracle Cloud, Ubuntu 22.04, Putty, Draw.io, Dominio Hostinger, Formspree',
-          imageProject: rdtroyaImage,
-          urlProject: 'https://rdtroyaram.site/',
-          statusProject: 'Completo'
+          id: 3,
+          name: 'Portafolio Personal',
+          description: 'Aplicativo web de visualización de habilidades, proyectos desarrollados y captura de información de contactos. El proyecto integra tecnologías escalables muy demandadas. Mantiene actualización constante y despliegue automático mediante Jenkins, GitHub y Oracle Cloud',
+          technologies: 'Vue.js, GitHub, Github Actions, Oracle Cloud, Ubuntu 22.04, Putty, Draw.io, Dominio Hostinger, Formspree',
+          image: rdtroyaImage,
+          url: 'https://rdtroyaram.site/',
+          status: 'Completo'
         },
         {
-          nameProject: 'Plataforma para un salón de belleza con usuarios y administradores',
-          descriptionProject: 'Aplicativo web que integra registro de usuarios con validación de correo, restablecer contraseña, registro, resumen, búsqueda de citas y sección administrador. Todo el sistema se encuentra integrado a una base de datos MySql',
-          tecnoProject: 'PHP 8, Apache, HTML, CSS, JavaScript, MySQL',
-          imageProject: appSalonImage,
-          urlProject: 'https://google.com',
-          statusProject: 'Update'
-        },
-        /*
-        {
-          nameProject: 'Proyecto 3',
-          descriptionProject: 'Descripcion de proyecto 3',
-          tecnoProject: '',
-          imageProject: 'image 3',
-          urlProject: 'link 3',
-          statusProject: 'Desarrollo'
-        },
-        */
+          id: 4,
+          name: 'Plataforma para un salón de belleza con usuarios y administradores',
+          description: 'Aplicativo web que integra registro de usuarios con validación de correo, restablecer contraseña, registro, resumen, búsqueda de citas y sección administrador. Todo el sistema se encuentra integrado a una base de datos MySql',
+          technologies: 'PHP 8, Apache, HTML, CSS, JavaScript, MySQL',
+          image: appSalonImage,
+          url: 'https://google.com',
+          status: 'Update'
+        }
       ]
     }
   },
   methods: {
     showDetails(project) {
-      window.open(project.urlProject, '_blank');
+      window.open(project.url, '_blank')
+    },
+    getStatusText(status) {
+      const statusMap = {
+        'Completo': 'Completo',
+        'Update': 'En Actualización',
+        'Desarrollo': 'En Desarrollo'
+      }
+      return statusMap[status] || status
     }
   }
 }
 </script>
 
 <style scoped>
-img {
-  max-width: 16rem;
-  max-height: 16rem;
-}
-
 .principal-content {
   max-width: 1200px;
-  
   margin: 0 auto;
   padding: 2rem;
   font-family: Arial, sans-serif;
@@ -126,94 +128,110 @@ img {
   margin-right: 4rem;
 }
 
-.description-text-wrapper {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.description-text-wrapper p, .description-text-wrapper ol {
-  margin-bottom: 1rem;
-}
-
-.second-content-wrapper {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  align-content: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
 .project-item {
   display: flex;
   flex-direction: row;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem;
   border-radius: 8px;
   font-size: 0.9rem;
   background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  gap: 2rem;
 }
 
-.content-wraper-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.content-wraper-details {
-  flex: 2;
+.project-left {
+  flex: 0 0 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
-.generic-button {
-    padding: 0.60rem 2rem;
-    font-size: 1rem;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.content-wraper-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.generic-button:hover {
-    background-color: #0056b3;
+.content-wraper-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.content-wraper-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .container-description {
-  max-width: 35rem;
+  max-width: 100%;
+}
+
+.generic-button {
+  padding: 0.60rem 2rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.generic-button:hover {
+  background-color: #0056b3;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.status-completo {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-update {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-desarrollo {
+  background-color: #cce7ff;
+  color: #004085;
 }
 
 @media (max-width: 768px) {
-  img {
-    max-width: 9rem;
-    max-height: 9rem;
-  }
-
-  .content-wraper-image {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    order: 2;
+  .content-wrapper {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .project-item {
-    display: flex;
     flex-direction: column;
+    gap: 1rem;
   }
 
-  .content-wrapper {
-    flex-direction: column;
-    margin-left: 0rem;
-    margin-right: 0rem;
+  .project-left {
+    flex: none;
+    width: 100%;
+  }
+
+  .content-wraper-image img {
+    max-width: 200px;
+  }
+
+  .generic-button {
+    max-width: 200px;
   }
 }
 </style>
